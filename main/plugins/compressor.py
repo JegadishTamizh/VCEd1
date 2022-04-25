@@ -93,12 +93,12 @@ async def compress(event, msg, ffmpeg_cmd=0, ps_name=None):
         cmd = f'ffmpeg -hide_banner -loglevel quiet -progress {progress} -i """{name}""" -vf crop=1440:784:240:176 -preset slow -vcodec libx265 -crf 23 -acodec copy -c:s copy """{out}""" -y'
     elif ffmpeg_cmd == 4:
         cmd = f'ffmpeg -hide_banner -loglevel quiet -progress {progress} -i """{name}""" -vf crop=1440:784:240:176 -preset slow -vcodec libx264 -crf 23 -acodec copy -c:s copy """{out}""" -y'
-    #try:
+    # try:
         #await ffmpeg_progress(cmd, name, progress, FT, edit, ps_name)
-    #except Exception as e:
-        #os.rmdir("encodemedia")
-        #print(e)
-        #return await edit.edit(f"An error occured while FFMPEG progress.\n\nContact [SUPPORT]({SUPPORT_LINK})", link_preview=False)   
+    # except Exception as e:
+        # os.rmdir("encodemedia")
+        # print(e)
+        # return await edit.edit(f"An error occured while FFMPEG progress.\n\nContact [SUPPORT]({SUPPORT_LINK})", link_preview=False)   
     out2 = dt.now().isoformat("_", "seconds") + ".mp4" 
     if msg.file.name:
         out2 = msg.file.name
