@@ -94,12 +94,12 @@ async def encode(event, msg, scale=0):
         cmd = f'ffmpeg -hide_banner -loglevel quiet -progress {progress} -i """{name}""" -c:v libx264 -pix_fmt yuv420p -preset ultrafast -s 854x480 -crf 23 -c:a libopus -ac 2 -ab 128k -c:s copy """{out}""" -y'
     elif scale == 720:
         cmd = f'ffmpeg -hide_banner -loglevel quiet -progress {progress} -i """{name}""" -c:v libx264 -pix_fmt yuv420p -preset ultrafast -s 1280x720 -crf 27 -c:a libopus -ac 2 -ab 128k -c:s copy """{out}""" -y'
-    try:
-        await ffmpeg_progress(cmd, name, progress, FT, edit, '**ENCODING:**')
-    except Exception as e:
-        os.rmdir("encodemedia")
-        print(e)
-        return await edit.edit(f"An error occured while FFMPEG progress.\n\nContact [SUPPORT]({SUPPORT_LINK})", link_preview=False)   
+    # try:
+        # await ffmpeg_progress(cmd, name, progress, FT, edit, '**ENCODING:**')
+    # except Exception as e:
+        # os.rmdir("encodemedia")
+        # print(e)
+        # return await edit.edit(f"An error occured while FFMPEG progress.\n\nContact [SUPPORT]({SUPPORT_LINK})", link_preview=False)   
     out2 = dt.now().isoformat("_", "seconds") + ".mp4" 
     if msg.file.name:
         out2 = msg.file.name
