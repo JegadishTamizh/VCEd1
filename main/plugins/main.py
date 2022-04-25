@@ -33,7 +33,7 @@ async def compin(event):
                             buttons=[
                                 [Button.inline("ENCODE", data="encode"),
                                  Button.inline("COMPRESS", data="compress")],
-                                 Button.inline("RENAME", data="rename")],
+                                [Button.inline("RENAME", data="rename")],
                             ])
             elif 'png' in video:
                 return
