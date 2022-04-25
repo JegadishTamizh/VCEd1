@@ -96,8 +96,8 @@ async def compress(event, msg, ffmpeg_cmd=0, ps_name=None):
     #try:
         #await ffmpeg_progress(cmd, name, progress, FT, edit, ps_name)
     #except Exception as e:
-        os.rmdir("encodemedia")
-        print(e)
+        #os.rmdir("encodemedia")
+        #print(e)
         #return await edit.edit(f"An error occured while FFMPEG progress.\n\nContact [SUPPORT]({SUPPORT_LINK})", link_preview=False)   
     out2 = dt.now().isoformat("_", "seconds") + ".mp4" 
     if msg.file.name:
